@@ -1,3 +1,5 @@
+![Ubuntu Build Status](https://github.com/ritukeshbharali/jemjive-3.0/actions/workflows/ci.yml/badge.svg)
+
 # Jem-Jive-3.0
 
 The Jem and Jive libraries are general purpose C++ programming toolkit for solving Partial Differential Equations (PDEs). They are developed and maintained by the [Dynaflow Research Group](https://dynaflow.com/).
