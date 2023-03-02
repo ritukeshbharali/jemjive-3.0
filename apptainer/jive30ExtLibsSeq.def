@@ -1,0 +1,50 @@
+Bootstrap: docker
+From: intel/oneapi-basekit:devel-ubuntu22.04
+
+%environment
+  export JEMDIR='/home/user/jem-3.0'
+  export JIVEDIR='/home/user/jive-3.0'
+
+%files
+  ../jem-3.0 /home/user/
+  ../jive-3.0 /home/user/
+
+%post
+    echo "Exporting jem and jive environments!"
+    export JEMDIR='/home/user/jem-3.0'
+    export JIVEDIR='/home/user/jive-3.0'
+
+    echo "Updating Ubuntu!"
+    apt-get -y update
+
+    echo "Installing pre-requisites"
+    apt-get install -y build-essential g++ zlib1g-dev libreadline-dev freeglut3-dev
+
+    echo "Installing additional libraries"
+    apt-get install -y wget unzip cmake pkg-config gcc gfortran libboost-all-dev
+
+    echo "Installing MUMPS and Suitesparse"
+    apt-get install -y libmumps-seq-dev libsuitesparse-dev
+    
+    echo "Installing openmpi"
+    apt-get install -y openmpi-bin openmpi-common libopenmpi-dev
+
+    cd /home/user/
+
+    echo "Installing jem-3.0"
+    ls .
+    (cd /home/user/jem-3.0 && ./configure --cxx=mpic++ && make -j -l4 && make -j -l4 clean)
+
+    echo "Installing jive-3.0"
+    ls .
+    (cd /home/user/jive-3.0 && ./configure && make -j -l4 && make -j -l4 clean)
+
+    cd /
+    
+    echo "Installation complete. Success!"
+
+% labels
+    creator Ritukesh Bharali, ritukesh_dot_bharali_at_gmail_dot_com
+
+% help
+    jive30.def is the input file to create a Jem-Jive environment with all dependencies (build-essentials, g++, zlib, libreadline, freeglut and openmpi). Note that it uses the intel/oneapi ubuntu image, which comes with the Pardiso solver. Also the sequential MUMPS and SuiteSpare libraries are installed. You can modify this file (after line 24) to add more libraries as you need. In order to build the container, you need to have apptainer (https://apptainer.org/) installed in your system. Once installed, run 'apptainer build jive30.sif jive30.def' to build the jive30.sif container. The expected container size is around 5 GB.
