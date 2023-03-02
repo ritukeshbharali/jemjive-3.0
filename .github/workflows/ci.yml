@@ -23,11 +23,12 @@ jobs:
       - name: Install open-mpi
         run: sudo apt-get install -y openmpi-bin openmpi-common libopenmpi-dev
 
-      - name: Install jem-3.0
+      - name: Install jem-3.0 and jive-3.0
         run: |
            cd ./jem-3.0
-           ./configure
-      
-      - name: Hello World
-        run: echo Hello, world!
-    
+           ./configure --cxx=mpic++ && make && make clean
+           export JEMDIR='/home/runner/work/jemjive-3.0/jemjive-3.0/jem-3.0'
+           cd ../jive-3.0
+           ./configure && make && make clean
+           export JIVEDIR='/home/runner/work/jemjive-3.0/jemjive-3.0/jive-3.0'
+           echo Installation complete!
