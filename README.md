@@ -19,6 +19,17 @@ This repository is an ***unofficial copy*** of the original software package, av
   - Enter Jive directory and './configure', and 'make' the library
   - export JIVEDIR='/home/user/libraries/jemjive/jive-3.0'
 
+## (Apptainer) container for HPC systems
+
+ - Install apptainer
+   > (sudo) add-apt-repository -y ppa:apptainer/ppa
+     (sudo) apt update
+     (sudo) apt install -y apptainer
+ - Go to ./apptainer directory
+ - Install Jem-Jive in an Ubuntu environment
+   > apptainer build jive30.sif jive30.def
+
+
 ## Support
 For support, contact the [Dynaflow Research Group](https://dynaflow.com/).
 
