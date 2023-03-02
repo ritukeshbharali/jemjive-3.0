@@ -67,8 +67,9 @@ class StateVector
   typedef util::
     VectorManager             Manager;
 
-  static const char*          NAMES     [3];
-  static const char*          OLD_NAMES [3];
+  static const char*          NAMES         [3];
+  static const char*          OLD_NAMES     [3];
+  static const char*          OLD_OLD_NAMES [3];
 
 
   static inline void          store
@@ -97,6 +98,19 @@ class StateVector
       const Ref<DofSpace>&      dofs,
       const Properties&         globdat );
 
+  static inline void          storeOldOld
+
+    ( const Vector&             state,
+      const Ref<DofSpace>&      dofs,
+      const Properties&         globdat );
+
+  static inline void          storeOldOld
+
+    ( const Vector&             state,
+      StateTag                  tag,
+      const Ref<DofSpace>&      dofs,
+      const Properties&         globdat );  
+
   static inline bool          find
 
     ( Vector&                   state,
@@ -123,6 +137,19 @@ class StateVector
       const Ref<DofSpace>&      dofs,
       const Properties&         globdat );
 
+  static inline bool          findOldOld
+
+    ( Vector&                   state,
+      const Ref<DofSpace>&      dofs,
+      const Properties&         globdat );
+
+  static inline bool          findOldOld
+
+    ( Vector&                   state,
+      StateTag                  tag,
+      const Ref<DofSpace>&      dofs,
+      const Properties&         globdat );  
+
   static inline void          get
 
     ( Vector&                   state,
@@ -148,11 +175,29 @@ class StateVector
       StateTag                  tag,
       const Ref<DofSpace>&      dofs,
       const Properties&         globdat );
+
+  static inline void          getOldOld
+
+    ( Vector&                   state,
+      const Ref<DofSpace>&      dofs,
+      const Properties&         globdat );
+
+  static inline void          getOldOld
+
+    ( Vector&                   state,
+      StateTag                  tag,
+      const Ref<DofSpace>&      dofs,
+      const Properties&         globdat );  
 
   static inline void          updateOld
 
     ( const Ref<DofSpace>&      dofs,
       const Properties&         globdat );
+
+  static inline void          updateOldOld
+
+    ( const Ref<DofSpace>&      dofs,
+      const Properties&         globdat );  
 
   static inline void          restoreNew
 
@@ -236,6 +281,34 @@ inline void StateVector::storeOld
 
 
 //-----------------------------------------------------------------------
+//   storeOldOld
+//-----------------------------------------------------------------------
+
+
+inline void StateVector::storeOldOld
+
+  ( const Vector&         state,
+    const Ref<DofSpace>&  dofs,
+    const Properties&     globdat )
+
+{
+  Manager::storeVector ( OLD_OLD_NAMES[0], state, dofs, globdat );
+}
+
+
+inline void StateVector::storeOldOld
+
+  ( const Vector&         state,
+    StateTag              tag,
+    const Ref<DofSpace>&  dofs,
+    const Properties&     globdat )
+
+{
+  Manager::storeVector ( OLD_OLD_NAMES[tag], state, dofs, globdat );
+}
+
+
+//-----------------------------------------------------------------------
 //   find
 //-----------------------------------------------------------------------
 
@@ -288,6 +361,34 @@ inline bool StateVector::findOld
 
 {
   return Manager::findVector ( state, OLD_NAMES[tag], dofs, globdat );
+}
+
+
+//-----------------------------------------------------------------------
+//   findOldOld
+//-----------------------------------------------------------------------
+
+
+inline bool StateVector::findOldOld
+
+  ( Vector&               state,
+    const Ref<DofSpace>&  dofs,
+    const Properties&     globdat )
+
+{
+  return Manager::findVector ( state, OLD_OLD_NAMES[0], dofs, globdat );
+}
+
+
+inline bool StateVector::findOldOld
+
+  ( Vector&               state,
+    StateTag              tag,
+    const Ref<DofSpace>&  dofs,
+    const Properties&     globdat )
+
+{
+  return Manager::findVector ( state, OLD_OLD_NAMES[tag], dofs, globdat );
 }
 
 
@@ -348,6 +449,34 @@ inline void StateVector::getOld
 
 
 //-----------------------------------------------------------------------
+//   getOldOld
+//-----------------------------------------------------------------------
+
+
+inline void StateVector::getOldOld
+
+  ( Vector&               state,
+    const Ref<DofSpace>&  dofs,
+    const Properties&     globdat )
+
+{
+  Manager::getVector ( state, OLD_OLD_NAMES[0], dofs, globdat );
+}
+
+
+inline void StateVector::getOldOld
+
+  ( Vector&               state,
+    StateTag              tag,
+    const Ref<DofSpace>&  dofs,
+    const Properties&     globdat )
+
+{
+  Manager::getVector ( state, OLD_OLD_NAMES[tag], dofs, globdat );
+}
+
+
+//-----------------------------------------------------------------------
 //   updateOld
 //-----------------------------------------------------------------------
 
@@ -359,6 +488,21 @@ inline void StateVector::updateOld
 
 {
   copy_ ( NAMES, OLD_NAMES, dofs, globdat );
+}
+
+
+//-----------------------------------------------------------------------
+//   updateOldOld
+//-----------------------------------------------------------------------
+
+
+inline void StateVector::updateOldOld
+
+  ( const Ref<DofSpace>&  dofs,
+    const Properties&     globdat )
+
+{
+  copy_ ( OLD_NAMES, OLD_OLD_NAMES, dofs, globdat );
 }
 
 

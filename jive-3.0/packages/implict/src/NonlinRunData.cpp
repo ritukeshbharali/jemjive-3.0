@@ -143,6 +143,7 @@ bool NonlinRunData::commit ( const Properties& globdat )
 
   if ( accept )
   {
+    StateVector::updateOldOld ( dofs, globdat );
     StateVector::updateOld ( dofs, globdat );
   }
 

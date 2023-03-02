@@ -53,13 +53,17 @@ const StateTag  STATE [3] = { STATE0, STATE1, STATE2 };
 //-----------------------------------------------------------------------
 
 
-const char*  StateVector::NAMES     [3] =
+const char*  StateVector::NAMES         [3] =
 
   { "state",    "state1",    "state2" };
 
-const char*  StateVector::OLD_NAMES [3]  =
+const char*  StateVector::OLD_NAMES     [3]  =
 
   { "oldState", "oldState1", "oldState2" };
+
+const char*  StateVector::OLD_OLD_NAMES [3]  =
+
+  { "oldOldState", "oldOldState1", "oldOldState2" };  // (RB)
 
 
 //-----------------------------------------------------------------------
