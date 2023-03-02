@@ -13,7 +13,20 @@ jobs:
     
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
+
+      - name: Install pre-requisites
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y build-essential g++ zlib1g-dev libreadline-dev freeglut3-dev
+      
+      - name: Install open-mpi
+        run: sudo apt-get install -y openmpi-bin openmpi-common libopenmpi-dev
+
+      - name: Install jem-3.0
+        run: |
+           cd ./jem-3.0
+           ./configure
       
       - name: Hello World
         run: echo Hello, world!
