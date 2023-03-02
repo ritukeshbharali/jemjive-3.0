@@ -2,6 +2,8 @@
 
 # Jem-Jive-3.0
 
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/690c695e28384c4390a1038f3849fd92)](https://app.codacy.com/gh/ritukeshbharali/jemjive-3.0?utm_source=github.com&utm_medium=referral&utm_content=ritukeshbharali/jemjive-3.0&utm_campaign=Badge_Grade_Settings)
+
 The Jem and Jive libraries are general purpose C++ programming toolkit for solving Partial Differential Equations (PDEs). They are developed and maintained by the [Dynaflow Research Group](https://dynaflow.com/).
 
 This repository is an ***unofficial copy*** of the original software package, available at the Dynaflow [webpage](https://software.dynaflow.com/jive/).
