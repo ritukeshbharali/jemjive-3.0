@@ -13,8 +13,8 @@ jobs:
     
     steps:
       - name: Checkout repository
-      - uses: actions/checkout@v2
+        uses: actions/checkout@v2
       
       - name: Hello World
-      - run: echo Hello, world!
+        run: echo Hello, world!
     
