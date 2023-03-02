@@ -22,9 +22,7 @@ This repository is an ***unofficial copy*** of the original software package, av
 ## (Apptainer) container for HPC systems
 
  - Install apptainer
-   > (sudo) add-apt-repository -y ppa:apptainer/ppa
-   > (sudo) apt update
-   > (sudo) apt install -y apptainer
+   > (sudo) add-apt-repository -y ppa:apptainer/ppa && apt update && apt install -y apptainer
  - Go to ./apptainer directory
  - Install Jem-Jive in an Ubuntu environment
    > apptainer build jive30.sif jive30.def
