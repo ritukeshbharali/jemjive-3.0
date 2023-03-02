@@ -1,0 +1,905 @@
+Log file created on Tue Oct 22 09:16:47 CEST 2019.
+
+Generating mesh with element size 0.001000 ...
+
+Reading mesh from `test.data' ...
+
+  test.data, line 2: reading tag `NodeConstraints' ...
+  test.data, line 7: done reading tag `NodeConstraints'
+  test.data, line 10: skipping tag `NodeTable' ...
+
+Reading block -> element map from `test.map.gz' ...
+
+  test.map.gz, line 2: reading tag `ElementMap' ...
+  test.map.gz, line 195: done reading tag `ElementMap'
+
+jive::util::Constraints(nodes) : reallocating constraints, kind = COMPRESSED
+
+Mesh partition summary:
+
+  blocks ........................................ 4
+  overlap ....................................... 1
+  border nodes .................................. 12630
+  min nodes/block ............................... 468588
+  max nodes/block ............................... 528056
+  border elements ............................... 8424
+  min elements/block ............................ 466873
+  max elements/block ............................ 526213
+
+Checking mesh blocks ...
+Mesh blocks are OK.
+
+Scattering mesh blocks ...
+
+  sending block to process 1 ...
+  sending block to process 2 ...
+  sending block to process 3 ...
+  checking node borders ...
+  checking element borders ...
+
+Scattering other data ...
+
+  scattering 6 node groups ...
+  scattering 2 element groups ...
+  scattering 0 node tables ...
+  scattering 0 element tables ...
+  scattering 0 node databases ...
+  scattering 0 element databases ...
+
+Reading data from `test.data' ...
+
+  test.data, line 2: reading tag `NodeConstraints' ...
+  test.data, line 7: done reading tag `NodeConstraints'
+  test.data, line 10: reading tag `NodeTable' ...
+  test.data, line 12: reading tag `Section' ...
+  test.data, line 16: done reading tag `Section'
+  test.data, line 18: done reading tag `NodeTable'
+
+shapeTable : updating shape table ...
+
+  creating 5 shapes of type `Quad4' ...
+
+    precision 0:
+
+      shapeFuncs	=
+      {
+        type	= "Linear";
+      };
+      intScheme	= [ "2*2", "2", "2", "2", "2" ];
+
+    precision 1:
+
+      shapeFuncs	=
+      {
+        type	= "Linear";
+      };
+      intScheme	= [ "3*3", "3", "3", "3", "3" ];
+
+    precision 2:
+
+      shapeFuncs	=
+      {
+        type	= "Linear";
+      };
+      intScheme	= [ "4*4", "4", "4", "4", "4" ];
+
+    precision 3:
+
+      shapeFuncs	=
+      {
+        type	= "Linear";
+      };
+      intScheme	= [ "5*5", "5", "5", "5", "5" ];
+
+    precision 4:
+
+      shapeFuncs	=
+      {
+        type	= "Linear";
+      };
+      intScheme	= [ "6*6", "6", "6", "6", "6" ];
+
+Created a new model named `model'.
+jive::util::FlexDofSpace(block0.nodes) : switching to dense storage mode ...
+
+jive::util::Constraints(block0.nodes) : reallocating constraints, kind = COMPRESSED
+Model `model.model.model.transport.model' is taking action `INIT'
+
+No action has been taken.
+
+Data summary:
+
+  nodes ......................................... 2015649
+  node dofs ..................................... 2015649
+  node constraints .............................. 2008
+  node groups ................................... 6
+  node tables ................................... 1
+  node data bases ............................... 0
+  elements ...................................... 2008432
+  element groups ................................ 2
+  element tables ................................ 0
+  element data bases ............................ 0
+  functions ..................................... 0
+
+Wrapping vector space (jive::algebra::StdVectorSpace@140275815444976) in an MP vector space
+Synchronizing all processes ...
+OK, all processes synchronized
+
+Model `model.model.model.transport.model' is taking action `NEW_MATRIX0'
+
+No action has been taken.
+
+Wrapping matrix `model.model.matrix0' in an MP matrix
+model.model.matrix0 : synchronizing all processes ...
+jive::mp::VectorExchanger(block0.nodes) : updating exchange data structures ...
+model.model.matrix0 : OK, all processes synchronized
+
+Model `model.model.model.transport.model' is taking action `NEW_PRECON0'
+
+No action has been taken.
+
+Model `model.model.model.transport.model' is taking action `GET_SOLVER_PARAMS'
+
+No action has been taken.
+
+Wrapping vector space (jive::algebra::StdVectorSpace@140275950958512) in an MP vector space
+Synchronizing all processes ...
+OK, all processes synchronized
+
+Application configuration data:
+
+  log	=
+  {
+    file	= "-test.log";
+    rank	= 0;
+    pattern	= "*.info|*.debug";
+    logPrefix	= "";
+    outPrefix	= "";
+    warnPrefix	= "*** WARNING: ";
+    errPrefix	= "*** ERROR: ";
+  };
+  checkpoint	=
+  {
+    file	= "";
+    backups	= 2;
+    sync	= false;
+    dumpWhen	= "save    last = 0.0
+    let     dump = (runtime - last) > 1000.0,
+            last = if( dump, runtime, last )
+    return  dump";
+  };
+  control	=
+  {
+    prompt	= ">";
+    cmdFile	= "";
+    fgMode	= false;
+    pause	= -1.00000;
+    runWhile	= "i < 2";
+  };
+  output	=
+  {
+    file	= "test.out";
+    append	= false;
+    precision	= 6;
+    pageWidth	= 200;
+    bufsize	= -1;
+    vectors	= [ "state = temp[%i]" ];
+    tables	= [ "nodes/flux = flux[%i]" ];
+    saveWhen	= true;
+  };
+  meshgen	=
+  {
+    storageMode	= "Compact";
+    elemSize	= 0.00100000;
+    geometry	=
+    {
+      type	= "Rectangle";
+      groupNames	=
+      {
+        leftEdge	= "leftEdge";
+        rightEdge	= "rightEdge";
+        lowerEdge	= "lowerEdge";
+        upperEdge	= "upperEdge";
+      };
+      size	= [ 2.00000, 1.00000 ];
+      elemType	= "Quad4";
+    };
+    output	= none;
+  };
+  storageMode	= "Compact";
+  input	=
+  {
+    storageMode	= "Compact";
+    file	= "test.data";
+    maxParts	= 0;
+    tableFilter	= "*";
+    dbaseFilter	= "*";
+    funcFilter	= "*";
+  };
+  mpart	=
+  {
+    storageMode	= "Compact";
+    mapFile	= "test.map.gz";
+    minDegree	= 1;
+    checkBlocks	= true;
+    overlap	= 1;
+  };
+  shapeTable	=
+  {
+    type	= "Auto";
+    boundaryElems	= "";
+    interfaceElems	= "";
+    maxPrecision	= 4;
+  };
+  model	=
+  {
+    type	= "MP";
+    model	=
+    {
+      type	= "Matrix";
+      model	=
+      {
+        type	= "Multi";
+        models	= [ "transport" ];
+        transport	=
+        {
+          type	= "Debug";
+          model	=
+          {
+            type	= "Transport";
+            elements	= "all";
+            dofName	= "u";
+            precision	= 1;
+            flowTable	= "";
+            diffusion	= [ 1.00000, 1.00000 ];
+          };
+          noiseLevel	= 1;
+        };
+      };
+      debug	= 0;
+      linear	= false;
+      matrix0	=
+      {
+        type	= "FEM";
+        symmetric	= true;
+        optimize	= "Runtime";
+      };
+    };
+    items	= "nodes";
+    tables	= [ "*" ];
+    vectors	= [ "GET_INT_VECTOR", "intVector", "GET_EXT_VECTOR", "extVector", "UPD_MATRIX0", "intVector",
+    "GET_MATRIX0", "intVector" ];
+  };
+  init	=
+  {
+    reorder	= false;
+    vectors	= [];
+  };
+  linsolve	=
+  {
+    solver	=
+    {
+      type	= "GMRES";
+      precon	=
+      {
+        type	= "Dual";
+        precon0	=
+        {
+          type	= "Coarse";
+          restrictor	=
+          {
+            type	= "RigidBody";
+            smooth	= false;
+            dofs	= [ "u" ];
+            minNodes	= 16;
+          };
+        };
+        precon1	=
+        {
+          type	= "ILUd";
+          reorder	= true;
+          maxFill	= 1.00000;
+          dropTol	= 1.00000e-06;
+          diagShift	= 0.00000;
+          zeroThreshold	= 1.00000e-06;
+          minSize	= 0;
+          quality	= 1.00000;
+        };
+        operation	= "Multiply2";
+      };
+      gramSchmidt	=
+      {
+        type	= "XGS";
+      };
+      printInterval	= 0.100000;
+      noiseLevel	= 2;
+      lenient	= false;
+      precision	= 1.00000e-05;
+      maxIter	= 2000;
+      updatePolicy	= "Auto";
+      restartIter	= 100;
+    };
+  };
+
+Initialization phase completed successfully.
+
+  Elapsed CPU  time : 5.640 seconds.
+  Elapsed real time : 4.602 seconds.
+
+Iteration       : 0
+Elapsed runtime : 4.602 seconds
+
+Model `model.model.model.transport.model' is taking action `ADVANCE'
+
+No action has been taken.
+
+Assembling the global system of equations ...
+Model `model.model.model.transport.model' is taking action `GET_CONSTRAINTS'
+
+No action has been taken.
+
+model.model.matrix0 : updating matrix structure ...
+model.model.matrix0 : matrix structure updated.
+Model `model.model.model.transport.model' is taking action `GET_MATRIX0'
+
+Action completed in 1.12033 seconds.
+
+model.model.matrix0 : updating sparse matrix structure ...
+model.model.matrix0 : scanning matrix for super rows ...
+model.model.matrix0 : done; found 515469 super rows in 515469 matrix rows.
+model.model.matrix0 : not enough super rows to enable blocking mode.
+Model `model.model.model.transport.model' is taking action `GET_EXT_VECTOR'
+
+No action has been taken.
+
+Solving the global system of equations ...
+
+Starting solver `linsolve.solver' ...
+
+linsolve.solver : maxIter   = 2000
+linsolve.solver : precision =  1.000e-05
+
+linsolve.solver.precon.precon0.restrictor : grouping the nodes into 4 sub sets ...
+linsolve.solver.precon.precon0.restrictor : using the matrix topology.
+linsolve.solver.precon.precon0.restrictor.partitioner : depth = 1
+linsolve.solver.precon.precon0.restrictor.partitioner.partitioner : level 2, graph size = 262094
+linsolve.solver.precon.precon0.restrictor.partitioner.partitioner : level 3, graph size = 136789
+linsolve.solver.precon.precon0.restrictor.partitioner.partitioner : level 4, graph size = 71955
+linsolve.solver.precon.precon0.restrictor.partitioner.partitioner : level 5, graph size = 38109
+linsolve.solver.precon.precon0.restrictor.partitioner.partitioner : level 6, graph size = 20226
+linsolve.solver.precon.precon0.restrictor.partitioner.partitioner : level 7, graph size = 10768
+linsolve.solver.precon.precon0.restrictor.partitioner.partitioner : level 8, graph size = 5720
+linsolve.solver.precon.precon0.restrictor.partitioner.partitioner : level 9, graph size = 3055
+linsolve.solver.precon.precon0.restrictor.partitioner.partitioner : level 10, graph size = 1633
+linsolve.solver.precon.precon0.restrictor.partitioner.partitioner : level 11, graph size = 864
+linsolve.solver.precon.precon0.restrictor.partitioner.partitioner : level 12, graph size = 461
+linsolve.solver.precon.precon0.restrictor.partitioner.partitioner : level 13, graph size = 245
+linsolve.solver.precon.precon0.restrictor.partitioner.partitioner : level 14, graph size = 134
+linsolve.solver.precon.precon0.restrictor.partitioner.partitioner : level 15, graph size = 69
+linsolve.solver.precon.precon0.restrictor.partitioner.partitioner : level 16, graph size = 36
+linsolve.solver.precon.precon0.restrictor.partitioner.partitioner : level 17, graph size = 18
+linsolve.solver.precon.precon0.restrictor.partitioner.partitioner : level count = 17, coarsest graph size = 18
+linsolve.solver.precon.precon0.restrictor.partitioner.partitioner.partitioner.partitioner : pass 0, cut weight = 11779
+linsolve.solver.precon.precon0.restrictor.partitioner.partitioner.partitioner.partitioner : pass 1, cut weight = 8633
+linsolve.solver.precon.precon0.restrictor.partitioner.partitioner.partitioner.partitioner : pass 2, cut weight = 11779
+linsolve.solver.precon.precon0.restrictor.partitioner.partitioner.partitioner.partitioner : pass 3, cut weight = 11779
+linsolve.solver.precon.precon0.restrictor.partitioner.partitioner.partitioner.partitioner.optimizer : initial edge-cut weight = 8633
+linsolve.solver.precon.precon0.restrictor.partitioner.partitioner.partitioner.partitioner.optimizer : final   edge-cut weight = 8633
+linsolve.solver.precon.precon0.restrictor.partitioner.partitioner.optimizer : initial edge-cut weight = 8633
+linsolve.solver.precon.precon0.restrictor.partitioner.partitioner.optimizer : final   edge-cut weight = 8633
+linsolve.solver.precon.precon0.restrictor.partitioner.partitioner.optimizer : initial edge-cut weight = 8633
+linsolve.solver.precon.precon0.restrictor.partitioner.partitioner.optimizer : final   edge-cut weight = 10225
+linsolve.solver.precon.precon0.restrictor.partitioner.partitioner.optimizer : initial edge-cut weight = 10225
+linsolve.solver.precon.precon0.restrictor.partitioner.partitioner.optimizer : final   edge-cut weight = 10225
+linsolve.solver.precon.precon0.restrictor.partitioner.partitioner.optimizer : initial edge-cut weight = 10225
+linsolve.solver.precon.precon0.restrictor.partitioner.partitioner.optimizer : final   edge-cut weight = 10225
+linsolve.solver.precon.precon0.restrictor.partitioner.partitioner.optimizer : initial edge-cut weight = 10225
+linsolve.solver.precon.precon0.restrictor.partitioner.partitioner.optimizer : final   edge-cut weight = 10225
+linsolve.solver.precon.precon0.restrictor.partitioner.partitioner.optimizer : initial edge-cut weight = 10225
+linsolve.solver.precon.precon0.restrictor.partitioner.partitioner.optimizer : final   edge-cut weight = 9907
+linsolve.solver.precon.precon0.restrictor.partitioner.partitioner.optimizer : initial edge-cut weight = 9907
+linsolve.solver.precon.precon0.restrictor.partitioner.partitioner.optimizer : final   edge-cut weight = 9907
+linsolve.solver.precon.precon0.restrictor.partitioner.partitioner.optimizer : initial edge-cut weight = 9907
+linsolve.solver.precon.precon0.restrictor.partitioner.partitioner.optimizer : final   edge-cut weight = 9907
+linsolve.solver.precon.precon0.restrictor.partitioner.partitioner.optimizer : initial edge-cut weight = 9907
+linsolve.solver.precon.precon0.restrictor.partitioner.partitioner.optimizer : final   edge-cut weight = 9775
+linsolve.solver.precon.precon0.restrictor.partitioner.partitioner.optimizer : initial edge-cut weight = 9775
+linsolve.solver.precon.precon0.restrictor.partitioner.partitioner.optimizer : final   edge-cut weight = 9775
+linsolve.solver.precon.precon0.restrictor.partitioner.partitioner.optimizer : initial edge-cut weight = 9775
+linsolve.solver.precon.precon0.restrictor.partitioner.partitioner.optimizer : final   edge-cut weight = 9703
+linsolve.solver.precon.precon0.restrictor.partitioner.partitioner.optimizer : initial edge-cut weight = 9703
+linsolve.solver.precon.precon0.restrictor.partitioner.partitioner.optimizer : final   edge-cut weight = 9685
+linsolve.solver.precon.precon0.restrictor.partitioner.partitioner.optimizer : initial edge-cut weight = 9685
+linsolve.solver.precon.precon0.restrictor.partitioner.partitioner.optimizer : final   edge-cut weight = 9685
+linsolve.solver.precon.precon0.restrictor.partitioner.partitioner.optimizer : initial edge-cut weight = 9685
+linsolve.solver.precon.precon0.restrictor.partitioner.partitioner.optimizer : final   edge-cut weight = 9679
+linsolve.solver.precon.precon0.restrictor.partitioner.partitioner.optimizer : initial edge-cut weight = 9679
+linsolve.solver.precon.precon0.restrictor.partitioner.partitioner.optimizer : final   edge-cut weight = 9679
+linsolve.solver.precon.precon0.restrictor.partitioner.partitioner.optimizer : initial edge-cut weight = 9679
+linsolve.solver.precon.precon0.restrictor.partitioner.partitioner.optimizer : final   edge-cut weight = 9679
+linsolve.solver.precon.precon0.restrictor.partitioner : depth = 2
+linsolve.solver.precon.precon0.restrictor.partitioner.partitioner : level 2, graph size = 131048
+linsolve.solver.precon.precon0.restrictor.partitioner.partitioner : level 3, graph size = 68389
+linsolve.solver.precon.precon0.restrictor.partitioner.partitioner : level 4, graph size = 36007
+linsolve.solver.precon.precon0.restrictor.partitioner.partitioner : level 5, graph size = 19076
+linsolve.solver.precon.precon0.restrictor.partitioner.partitioner : level 6, graph size = 10119
+linsolve.solver.precon.precon0.restrictor.partitioner.partitioner : level 7, graph size = 5389
+linsolve.solver.precon.precon0.restrictor.partitioner.partitioner : level 8, graph size = 2864
+linsolve.solver.precon.precon0.restrictor.partitioner.partitioner : level 9, graph size = 1524
+linsolve.solver.precon.precon0.restrictor.partitioner.partitioner : level 10, graph size = 817
+linsolve.solver.precon.precon0.restrictor.partitioner.partitioner : level 11, graph size = 442
+linsolve.solver.precon.precon0.restrictor.partitioner.partitioner : level 12, graph size = 240
+linsolve.solver.precon.precon0.restrictor.partitioner.partitioner : level 13, graph size = 133
+linsolve.solver.precon.precon0.restrictor.partitioner.partitioner : level 14, graph size = 71
+linsolve.solver.precon.precon0.restrictor.partitioner.partitioner : level 15, graph size = 38
+linsolve.solver.precon.precon0.restrictor.partitioner.partitioner : level 16, graph size = 22
+linsolve.solver.precon.precon0.restrictor.partitioner.partitioner : level count = 16, coarsest graph size = 22
+linsolve.solver.precon.precon0.restrictor.partitioner.partitioner.partitioner.partitioner : pass 0, cut weight = 11330
+linsolve.solver.precon.precon0.restrictor.partitioner.partitioner.partitioner.partitioner : pass 1, cut weight = 11118
+linsolve.solver.precon.precon0.restrictor.partitioner.partitioner.partitioner.partitioner : pass 2, cut weight = 11330
+linsolve.solver.precon.precon0.restrictor.partitioner.partitioner.partitioner.partitioner : pass 3, cut weight = 11118
+linsolve.solver.precon.precon0.restrictor.partitioner.partitioner.partitioner.partitioner.optimizer : initial edge-cut weight = 11118
+linsolve.solver.precon.precon0.restrictor.partitioner.partitioner.partitioner.partitioner.optimizer : final   edge-cut weight = 10356
+linsolve.solver.precon.precon0.restrictor.partitioner.partitioner.optimizer : initial edge-cut weight = 10356
+linsolve.solver.precon.precon0.restrictor.partitioner.partitioner.optimizer : final   edge-cut weight = 9798
+linsolve.solver.precon.precon0.restrictor.partitioner.partitioner.optimizer : initial edge-cut weight = 9798
+linsolve.solver.precon.precon0.restrictor.partitioner.partitioner.optimizer : final   edge-cut weight = 9798
+linsolve.solver.precon.precon0.restrictor.partitioner.partitioner.optimizer : initial edge-cut weight = 9798
+linsolve.solver.precon.precon0.restrictor.partitioner.partitioner.optimizer : final   edge-cut weight = 9924
+linsolve.solver.precon.precon0.restrictor.partitioner.partitioner.optimizer : initial edge-cut weight = 9924
+linsolve.solver.precon.precon0.restrictor.partitioner.partitioner.optimizer : final   edge-cut weight = 9924
+linsolve.solver.precon.precon0.restrictor.partitioner.partitioner.optimizer : initial edge-cut weight = 9924
+linsolve.solver.precon.precon0.restrictor.partitioner.partitioner.optimizer : final   edge-cut weight = 10062
+linsolve.solver.precon.precon0.restrictor.partitioner.partitioner.optimizer : initial edge-cut weight = 10062
+linsolve.solver.precon.precon0.restrictor.partitioner.partitioner.optimizer : final   edge-cut weight = 10062
+linsolve.solver.precon.precon0.restrictor.partitioner.partitioner.optimizer : initial edge-cut weight = 10062
+linsolve.solver.precon.precon0.restrictor.partitioner.partitioner.optimizer : final   edge-cut weight = 10062
+linsolve.solver.precon.precon0.restrictor.partitioner.partitioner.optimizer : initial edge-cut weight = 10062
+linsolve.solver.precon.precon0.restrictor.partitioner.partitioner.optimizer : final   edge-cut weight = 9948
+linsolve.solver.precon.precon0.restrictor.partitioner.partitioner.optimizer : initial edge-cut weight = 9948
+linsolve.solver.precon.precon0.restrictor.partitioner.partitioner.optimizer : final   edge-cut weight = 9948
+linsolve.solver.precon.precon0.restrictor.partitioner.partitioner.optimizer : initial edge-cut weight = 9948
+linsolve.solver.precon.precon0.restrictor.partitioner.partitioner.optimizer : final   edge-cut weight = 9948
+linsolve.solver.precon.precon0.restrictor.partitioner.partitioner.optimizer : initial edge-cut weight = 9948
+linsolve.solver.precon.precon0.restrictor.partitioner.partitioner.optimizer : final   edge-cut weight = 9948
+linsolve.solver.precon.precon0.restrictor.partitioner.partitioner.optimizer : initial edge-cut weight = 9948
+linsolve.solver.precon.precon0.restrictor.partitioner.partitioner.optimizer : final   edge-cut weight = 9948
+linsolve.solver.precon.precon0.restrictor.partitioner.partitioner.optimizer : initial edge-cut weight = 9948
+linsolve.solver.precon.precon0.restrictor.partitioner.partitioner.optimizer : final   edge-cut weight = 9954
+linsolve.solver.precon.precon0.restrictor.partitioner.partitioner.optimizer : initial edge-cut weight = 9954
+linsolve.solver.precon.precon0.restrictor.partitioner.partitioner.optimizer : final   edge-cut weight = 9954
+linsolve.solver.precon.precon0.restrictor.partitioner.partitioner.optimizer : initial edge-cut weight = 9954
+linsolve.solver.precon.precon0.restrictor.partitioner.partitioner.optimizer : final   edge-cut weight = 9954
+linsolve.solver.precon.precon0.restrictor.partitioner.partitioner : level 2, graph size = 131073
+linsolve.solver.precon.precon0.restrictor.partitioner.partitioner : level 3, graph size = 68365
+linsolve.solver.precon.precon0.restrictor.partitioner.partitioner : level 4, graph size = 35929
+linsolve.solver.precon.precon0.restrictor.partitioner.partitioner : level 5, graph size = 19034
+linsolve.solver.precon.precon0.restrictor.partitioner.partitioner : level 6, graph size = 10108
+linsolve.solver.precon.precon0.restrictor.partitioner.partitioner : level 7, graph size = 5381
+linsolve.solver.precon.precon0.restrictor.partitioner.partitioner : level 8, graph size = 2868
+linsolve.solver.precon.precon0.restrictor.partitioner.partitioner : level 9, graph size = 1527
+linsolve.solver.precon.precon0.restrictor.partitioner.partitioner : level 10, graph size = 814
+linsolve.solver.precon.precon0.restrictor.partitioner.partitioner : level 11, graph size = 439
+linsolve.solver.precon.precon0.restrictor.partitioner.partitioner : level 12, graph size = 231
+linsolve.solver.precon.precon0.restrictor.partitioner.partitioner : level 13, graph size = 123
+linsolve.solver.precon.precon0.restrictor.partitioner.partitioner : level 14, graph size = 68
+linsolve.solver.precon.precon0.restrictor.partitioner.partitioner : level 15, graph size = 38
+linsolve.solver.precon.precon0.restrictor.partitioner.partitioner : level 16, graph size = 20
+linsolve.solver.precon.precon0.restrictor.partitioner.partitioner : level count = 16, coarsest graph size = 20
+linsolve.solver.precon.precon0.restrictor.partitioner.partitioner.partitioner.partitioner : pass 0, cut weight = 12081
+linsolve.solver.precon.precon0.restrictor.partitioner.partitioner.partitioner.partitioner : pass 1, cut weight = 10671
+linsolve.solver.precon.precon0.restrictor.partitioner.partitioner.partitioner.partitioner : pass 2, cut weight = 12081
+linsolve.solver.precon.precon0.restrictor.partitioner.partitioner.partitioner.partitioner : pass 3, cut weight = 12081
+linsolve.solver.precon.precon0.restrictor.partitioner.partitioner.partitioner.partitioner.optimizer : initial edge-cut weight = 10671
+linsolve.solver.precon.precon0.restrictor.partitioner.partitioner.partitioner.partitioner.optimizer : final   edge-cut weight = 9793
+linsolve.solver.precon.precon0.restrictor.partitioner.partitioner.optimizer : initial edge-cut weight = 9793
+linsolve.solver.precon.precon0.restrictor.partitioner.partitioner.optimizer : final   edge-cut weight = 11060
+linsolve.solver.precon.precon0.restrictor.partitioner.partitioner.optimizer : initial edge-cut weight = 11060
+linsolve.solver.precon.precon0.restrictor.partitioner.partitioner.optimizer : final   edge-cut weight = 11534
+linsolve.solver.precon.precon0.restrictor.partitioner.partitioner.optimizer : initial edge-cut weight = 11534
+linsolve.solver.precon.precon0.restrictor.partitioner.partitioner.optimizer : final   edge-cut weight = 11534
+linsolve.solver.precon.precon0.restrictor.partitioner.partitioner.optimizer : initial edge-cut weight = 11534
+linsolve.solver.precon.precon0.restrictor.partitioner.partitioner.optimizer : final   edge-cut weight = 11195
+linsolve.solver.precon.precon0.restrictor.partitioner.partitioner.optimizer : initial edge-cut weight = 11195
+linsolve.solver.precon.precon0.restrictor.partitioner.partitioner.optimizer : final   edge-cut weight = 11195
+linsolve.solver.precon.precon0.restrictor.partitioner.partitioner.optimizer : initial edge-cut weight = 11195
+linsolve.solver.precon.precon0.restrictor.partitioner.partitioner.optimizer : final   edge-cut weight = 11195
+linsolve.solver.precon.precon0.restrictor.partitioner.partitioner.optimizer : initial edge-cut weight = 11195
+linsolve.solver.precon.precon0.restrictor.partitioner.partitioner.optimizer : final   edge-cut weight = 11195
+linsolve.solver.precon.precon0.restrictor.partitioner.partitioner.optimizer : initial edge-cut weight = 11195
+linsolve.solver.precon.precon0.restrictor.partitioner.partitioner.optimizer : final   edge-cut weight = 11195
+linsolve.solver.precon.precon0.restrictor.partitioner.partitioner.optimizer : initial edge-cut weight = 11195
+linsolve.solver.precon.precon0.restrictor.partitioner.partitioner.optimizer : final   edge-cut weight = 11159
+linsolve.solver.precon.precon0.restrictor.partitioner.partitioner.optimizer : initial edge-cut weight = 11159
+linsolve.solver.precon.precon0.restrictor.partitioner.partitioner.optimizer : final   edge-cut weight = 11159
+linsolve.solver.precon.precon0.restrictor.partitioner.partitioner.optimizer : initial edge-cut weight = 11159
+linsolve.solver.precon.precon0.restrictor.partitioner.partitioner.optimizer : final   edge-cut weight = 11159
+linsolve.solver.precon.precon0.restrictor.partitioner.partitioner.optimizer : initial edge-cut weight = 11159
+linsolve.solver.precon.precon0.restrictor.partitioner.partitioner.optimizer : final   edge-cut weight = 11129
+linsolve.solver.precon.precon0.restrictor.partitioner.partitioner.optimizer : initial edge-cut weight = 11129
+linsolve.solver.precon.precon0.restrictor.partitioner.partitioner.optimizer : final   edge-cut weight = 11129
+linsolve.solver.precon.precon0.restrictor.partitioner.partitioner.optimizer : initial edge-cut weight = 11129
+linsolve.solver.precon.precon0.restrictor.partitioner.partitioner.optimizer : final   edge-cut weight = 11129
+linsolve.solver.precon.precon0.restrictor.partitioner.partitioner.optimizer : initial edge-cut weight = 11129
+linsolve.solver.precon.precon0.restrictor.partitioner.partitioner.optimizer : final   edge-cut weight = 11129
+linsolve.solver.precon.precon0.restrictor.partitioner.optimizer : initial edge-cut weight = 30762
+linsolve.solver.precon.precon0.restrictor.partitioner.optimizer : final   edge-cut weight = 24504
+linsolve.solver.precon.precon0.restrictor : computing 1 rigid body modes ...
+linsolve.solver.precon.precon0.restrictor : got 4 rigid body vectors
+Numbering coarse DOFs ...
+linsolve.solver.precon.precon0 : assembling the coarse matrix ...
+linsolve.solver.precon.precon0 : ready in 16 iterations.
+linsolve.solver.precon.precon0 : coarse matrix size = 16
+linsolve.solver.precon.precon0 : factoring the coarse matrix ...
+linsolve.solver.precon.precon0 : factorization complete.
+linsolve.solver.precon.precon1 : re-ordering matrix ...
+linsolve.solver.precon.precon1 : computing ILU factors ...
+linsolve.solver.precon.precon1 : non-zeroes in ILU factors: 9.684e+06
+jive::algebra::MPVectorSpace : initializing weight vector ...
+linsolve.solver : allocated memory for 4 Krylov vectors
+linsolve.solver : iter =    1, estimated residual =  3.620e-02
+linsolve.solver : iter =    2, estimated residual =  1.646e-02
+linsolve.solver : iter =    3, estimated residual =  9.915e-03
+linsolve.solver : iter =    4, estimated residual =  6.021e-03
+linsolve.solver : allocated memory for 10 Krylov vectors
+linsolve.solver : iter =    5, estimated residual =  4.338e-03
+linsolve.solver : iter =    6, estimated residual =  3.379e-03
+linsolve.solver : iter =    7, estimated residual =  2.565e-03
+linsolve.solver : iter =    8, estimated residual =  2.203e-03
+linsolve.solver : iter =    9, estimated residual =  1.819e-03
+linsolve.solver : iter =   10, estimated residual =  1.523e-03
+linsolve.solver : allocated memory for 19 Krylov vectors
+linsolve.solver : iter =   11, estimated residual =  1.277e-03
+linsolve.solver : iter =   12, estimated residual =  1.110e-03
+linsolve.solver : iter =   13, estimated residual =  9.746e-04
+linsolve.solver : iter =   14, estimated residual =  8.421e-04
+linsolve.solver : iter =   15, estimated residual =  7.467e-04
+linsolve.solver : iter =   16, estimated residual =  6.718e-04
+linsolve.solver : iter =   17, estimated residual =  6.055e-04
+linsolve.solver : iter =   18, estimated residual =  5.459e-04
+linsolve.solver : iter =   19, estimated residual =  4.973e-04
+linsolve.solver : allocated memory for 32 Krylov vectors
+linsolve.solver : iter =   20, estimated residual =  4.639e-04
+linsolve.solver : iter =   21, estimated residual =  4.314e-04
+linsolve.solver : iter =   22, estimated residual =  3.938e-04
+linsolve.solver : iter =   23, estimated residual =  3.616e-04
+linsolve.solver : iter =   24, estimated residual =  3.370e-04
+linsolve.solver : iter =   25, estimated residual =  3.134e-04
+linsolve.solver : iter =   26, estimated residual =  2.921e-04
+linsolve.solver : iter =   27, estimated residual =  2.721e-04
+linsolve.solver : iter =   28, estimated residual =  2.537e-04
+linsolve.solver : iter =   29, estimated residual =  2.363e-04
+linsolve.solver : iter =   30, estimated residual =  2.202e-04
+linsolve.solver : iter =   31, estimated residual =  2.079e-04
+linsolve.solver : iter =   32, estimated residual =  1.969e-04
+linsolve.solver : allocated memory for 52 Krylov vectors
+linsolve.solver : iter =   33, estimated residual =  1.851e-04
+linsolve.solver : iter =   34, estimated residual =  1.737e-04
+linsolve.solver : iter =   35, estimated residual =  1.636e-04
+linsolve.solver : iter =   36, estimated residual =  1.556e-04
+linsolve.solver : iter =   37, estimated residual =  1.480e-04
+linsolve.solver : iter =   38, estimated residual =  1.417e-04
+linsolve.solver : iter =   39, estimated residual =  1.364e-04
+linsolve.solver : iter =   40, estimated residual =  1.306e-04
+linsolve.solver : iter =   41, estimated residual =  1.247e-04
+linsolve.solver : iter =   42, estimated residual =  1.189e-04
+linsolve.solver : iter =   43, estimated residual =  1.134e-04
+linsolve.solver : iter =   44, estimated residual =  1.085e-04
+linsolve.solver : iter =   45, estimated residual =  1.036e-04
+linsolve.solver : iter =   46, estimated residual =  9.928e-05
+linsolve.solver : iter =   47, estimated residual =  9.490e-05
+linsolve.solver : iter =   48, estimated residual =  9.141e-05
+linsolve.solver : iter =   49, estimated residual =  8.791e-05
+linsolve.solver : iter =   50, estimated residual =  8.473e-05
+linsolve.solver : iter =   51, estimated residual =  8.170e-05
+linsolve.solver : iter =   52, estimated residual =  7.881e-05
+linsolve.solver : allocated memory for 82 Krylov vectors
+linsolve.solver : iter =   53, estimated residual =  7.646e-05
+linsolve.solver : iter =   54, estimated residual =  7.437e-05
+linsolve.solver : iter =   55, estimated residual =  7.225e-05
+linsolve.solver : iter =   56, estimated residual =  6.996e-05
+linsolve.solver : iter =   57, estimated residual =  6.726e-05
+linsolve.solver : iter =   58, estimated residual =  6.427e-05
+linsolve.solver : iter =   59, estimated residual =  6.134e-05
+linsolve.solver : iter =   60, estimated residual =  5.858e-05
+linsolve.solver : iter =   61, estimated residual =  5.600e-05
+linsolve.solver : iter =   62, estimated residual =  5.329e-05
+linsolve.solver : iter =   63, estimated residual =  5.036e-05
+linsolve.solver : iter =   64, estimated residual =  4.712e-05
+linsolve.solver : iter =   65, estimated residual =  4.390e-05
+linsolve.solver : iter =   66, estimated residual =  4.055e-05
+linsolve.solver : iter =   67, estimated residual =  3.706e-05
+linsolve.solver : iter =   68, estimated residual =  3.404e-05
+linsolve.solver : iter =   69, estimated residual =  3.135e-05
+linsolve.solver : iter =   70, estimated residual =  2.927e-05
+linsolve.solver : iter =   71, estimated residual =  2.713e-05
+linsolve.solver : iter =   72, estimated residual =  2.542e-05
+linsolve.solver : iter =   73, estimated residual =  2.377e-05
+linsolve.solver : iter =   74, estimated residual =  2.239e-05
+linsolve.solver : iter =   75, estimated residual =  2.102e-05
+linsolve.solver : iter =   76, estimated residual =  1.979e-05
+linsolve.solver : iter =   77, estimated residual =  1.865e-05
+linsolve.solver : iter =   78, estimated residual =  1.766e-05
+linsolve.solver : iter =   79, estimated residual =  1.675e-05
+linsolve.solver : iter =   80, estimated residual =  1.577e-05
+linsolve.solver : iter =   81, estimated residual =  1.488e-05
+linsolve.solver : iter =   82, estimated residual =  1.388e-05
+linsolve.solver : allocated memory for 100 Krylov vectors
+linsolve.solver : iter =   83, estimated residual =  1.304e-05
+linsolve.solver : iter =   84, estimated residual =  1.232e-05
+linsolve.solver : iter =   85, estimated residual =  1.173e-05
+linsolve.solver : iter =   86, estimated residual =  1.124e-05
+linsolve.solver : iter =   87, estimated residual =  1.072e-05
+linsolve.solver : iter =   88, estimated residual =  1.026e-05
+linsolve.solver : iter =   89, estimated residual =  9.799e-06
+linsolve.solver : iter =   90, estimated residual =  9.306e-06
+linsolve.solver : iter =   90, actual residual    =  9.306e-06
+
+Solution obtained in   90 iterations ( 2.860e+01 seconds).
+
+Model `model.model.model.transport.model' is taking action `UPDATE'
+
+No action has been taken.
+
+Model `model.model.model.transport.model' is taking action `CHECK_COMMIT'
+
+No action has been taken.
+
+Model `model.model.model.transport.model' is taking action `COMMIT'
+
+DofSpace event ...
+
+No action has been taken.
+
+Model `model.model.model.transport.model' is taking action `GET_TABLE'
+
+Action completed in 0.688197 seconds.
+
+jive::mp::TableExchanger(block0.nodes) : updating exchange data structures ...
+
+Iteration       : 1
+Elapsed runtime : 38.63 seconds
+
+Model `model.model.model.transport.model' is taking action `ADVANCE'
+
+No action has been taken.
+
+Assembling the global system of equations ...
+Model `model.model.model.transport.model' is taking action `GET_CONSTRAINTS'
+
+No action has been taken.
+
+model.model.matrix0 : updating matrix structure ...
+model.model.matrix0 : matrix structure updated.
+Model `model.model.model.transport.model' is taking action `GET_MATRIX0'
+
+Action completed in 1.15726 seconds.
+
+model.model.matrix0 : updating sparse matrix structure ...
+model.model.matrix0 : scanning matrix for super rows ...
+model.model.matrix0 : done; found 515469 super rows in 515469 matrix rows.
+model.model.matrix0 : not enough super rows to enable blocking mode.
+jive::mp::VectorExchanger(block0.nodes) : updating exchange data structures ...
+Model `model.model.model.transport.model' is taking action `GET_EXT_VECTOR'
+
+No action has been taken.
+
+Solving the global system of equations ...
+
+Starting solver `linsolve.solver' ...
+
+linsolve.solver : maxIter   = 2000
+linsolve.solver : precision =  1.000e-05
+
+linsolve.solver.precon.precon0.restrictor : grouping the nodes into 4 sub sets ...
+linsolve.solver.precon.precon0.restrictor : using the matrix topology.
+linsolve.solver.precon.precon0.restrictor.partitioner : depth = 1
+linsolve.solver.precon.precon0.restrictor.partitioner.partitioner : level 2, graph size = 262094
+linsolve.solver.precon.precon0.restrictor.partitioner.partitioner : level 3, graph size = 136789
+linsolve.solver.precon.precon0.restrictor.partitioner.partitioner : level 4, graph size = 71955
+linsolve.solver.precon.precon0.restrictor.partitioner.partitioner : level 5, graph size = 38109
+linsolve.solver.precon.precon0.restrictor.partitioner.partitioner : level 6, graph size = 20226
+linsolve.solver.precon.precon0.restrictor.partitioner.partitioner : level 7, graph size = 10768
+linsolve.solver.precon.precon0.restrictor.partitioner.partitioner : level 8, graph size = 5720
+linsolve.solver.precon.precon0.restrictor.partitioner.partitioner : level 9, graph size = 3055
+linsolve.solver.precon.precon0.restrictor.partitioner.partitioner : level 10, graph size = 1633
+linsolve.solver.precon.precon0.restrictor.partitioner.partitioner : level 11, graph size = 864
+linsolve.solver.precon.precon0.restrictor.partitioner.partitioner : level 12, graph size = 461
+linsolve.solver.precon.precon0.restrictor.partitioner.partitioner : level 13, graph size = 245
+linsolve.solver.precon.precon0.restrictor.partitioner.partitioner : level 14, graph size = 134
+linsolve.solver.precon.precon0.restrictor.partitioner.partitioner : level 15, graph size = 69
+linsolve.solver.precon.precon0.restrictor.partitioner.partitioner : level 16, graph size = 36
+linsolve.solver.precon.precon0.restrictor.partitioner.partitioner : level 17, graph size = 18
+linsolve.solver.precon.precon0.restrictor.partitioner.partitioner : level count = 17, coarsest graph size = 18
+linsolve.solver.precon.precon0.restrictor.partitioner.partitioner.partitioner.partitioner : pass 0, cut weight = 11779
+linsolve.solver.precon.precon0.restrictor.partitioner.partitioner.partitioner.partitioner : pass 1, cut weight = 8633
+linsolve.solver.precon.precon0.restrictor.partitioner.partitioner.partitioner.partitioner : pass 2, cut weight = 11779
+linsolve.solver.precon.precon0.restrictor.partitioner.partitioner.partitioner.partitioner : pass 3, cut weight = 11779
+linsolve.solver.precon.precon0.restrictor.partitioner.partitioner.partitioner.partitioner.optimizer : initial edge-cut weight = 8633
+linsolve.solver.precon.precon0.restrictor.partitioner.partitioner.partitioner.partitioner.optimizer : final   edge-cut weight = 8633
+linsolve.solver.precon.precon0.restrictor.partitioner.partitioner.optimizer : initial edge-cut weight = 8633
+linsolve.solver.precon.precon0.restrictor.partitioner.partitioner.optimizer : final   edge-cut weight = 8633
+linsolve.solver.precon.precon0.restrictor.partitioner.partitioner.optimizer : initial edge-cut weight = 8633
+linsolve.solver.precon.precon0.restrictor.partitioner.partitioner.optimizer : final   edge-cut weight = 10225
+linsolve.solver.precon.precon0.restrictor.partitioner.partitioner.optimizer : initial edge-cut weight = 10225
+linsolve.solver.precon.precon0.restrictor.partitioner.partitioner.optimizer : final   edge-cut weight = 10225
+linsolve.solver.precon.precon0.restrictor.partitioner.partitioner.optimizer : initial edge-cut weight = 10225
+linsolve.solver.precon.precon0.restrictor.partitioner.partitioner.optimizer : final   edge-cut weight = 10225
+linsolve.solver.precon.precon0.restrictor.partitioner.partitioner.optimizer : initial edge-cut weight = 10225
+linsolve.solver.precon.precon0.restrictor.partitioner.partitioner.optimizer : final   edge-cut weight = 10225
+linsolve.solver.precon.precon0.restrictor.partitioner.partitioner.optimizer : initial edge-cut weight = 10225
+linsolve.solver.precon.precon0.restrictor.partitioner.partitioner.optimizer : final   edge-cut weight = 9907
+linsolve.solver.precon.precon0.restrictor.partitioner.partitioner.optimizer : initial edge-cut weight = 9907
+linsolve.solver.precon.precon0.restrictor.partitioner.partitioner.optimizer : final   edge-cut weight = 9907
+linsolve.solver.precon.precon0.restrictor.partitioner.partitioner.optimizer : initial edge-cut weight = 9907
+linsolve.solver.precon.precon0.restrictor.partitioner.partitioner.optimizer : final   edge-cut weight = 9907
+linsolve.solver.precon.precon0.restrictor.partitioner.partitioner.optimizer : initial edge-cut weight = 9907
+linsolve.solver.precon.precon0.restrictor.partitioner.partitioner.optimizer : final   edge-cut weight = 9775
+linsolve.solver.precon.precon0.restrictor.partitioner.partitioner.optimizer : initial edge-cut weight = 9775
+linsolve.solver.precon.precon0.restrictor.partitioner.partitioner.optimizer : final   edge-cut weight = 9775
+linsolve.solver.precon.precon0.restrictor.partitioner.partitioner.optimizer : initial edge-cut weight = 9775
+linsolve.solver.precon.precon0.restrictor.partitioner.partitioner.optimizer : final   edge-cut weight = 9703
+linsolve.solver.precon.precon0.restrictor.partitioner.partitioner.optimizer : initial edge-cut weight = 9703
+linsolve.solver.precon.precon0.restrictor.partitioner.partitioner.optimizer : final   edge-cut weight = 9685
+linsolve.solver.precon.precon0.restrictor.partitioner.partitioner.optimizer : initial edge-cut weight = 9685
+linsolve.solver.precon.precon0.restrictor.partitioner.partitioner.optimizer : final   edge-cut weight = 9685
+linsolve.solver.precon.precon0.restrictor.partitioner.partitioner.optimizer : initial edge-cut weight = 9685
+linsolve.solver.precon.precon0.restrictor.partitioner.partitioner.optimizer : final   edge-cut weight = 9679
+linsolve.solver.precon.precon0.restrictor.partitioner.partitioner.optimizer : initial edge-cut weight = 9679
+linsolve.solver.precon.precon0.restrictor.partitioner.partitioner.optimizer : final   edge-cut weight = 9679
+linsolve.solver.precon.precon0.restrictor.partitioner.partitioner.optimizer : initial edge-cut weight = 9679
+linsolve.solver.precon.precon0.restrictor.partitioner.partitioner.optimizer : final   edge-cut weight = 9679
+linsolve.solver.precon.precon0.restrictor.partitioner : depth = 2
+linsolve.solver.precon.precon0.restrictor.partitioner.partitioner : level 2, graph size = 131048
+linsolve.solver.precon.precon0.restrictor.partitioner.partitioner : level 3, graph size = 68389
+linsolve.solver.precon.precon0.restrictor.partitioner.partitioner : level 4, graph size = 36007
+linsolve.solver.precon.precon0.restrictor.partitioner.partitioner : level 5, graph size = 19076
+linsolve.solver.precon.precon0.restrictor.partitioner.partitioner : level 6, graph size = 10119
+linsolve.solver.precon.precon0.restrictor.partitioner.partitioner : level 7, graph size = 5389
+linsolve.solver.precon.precon0.restrictor.partitioner.partitioner : level 8, graph size = 2864
+linsolve.solver.precon.precon0.restrictor.partitioner.partitioner : level 9, graph size = 1524
+linsolve.solver.precon.precon0.restrictor.partitioner.partitioner : level 10, graph size = 817
+linsolve.solver.precon.precon0.restrictor.partitioner.partitioner : level 11, graph size = 442
+linsolve.solver.precon.precon0.restrictor.partitioner.partitioner : level 12, graph size = 240
+linsolve.solver.precon.precon0.restrictor.partitioner.partitioner : level 13, graph size = 133
+linsolve.solver.precon.precon0.restrictor.partitioner.partitioner : level 14, graph size = 71
+linsolve.solver.precon.precon0.restrictor.partitioner.partitioner : level 15, graph size = 38
+linsolve.solver.precon.precon0.restrictor.partitioner.partitioner : level 16, graph size = 22
+linsolve.solver.precon.precon0.restrictor.partitioner.partitioner : level count = 16, coarsest graph size = 22
+linsolve.solver.precon.precon0.restrictor.partitioner.partitioner.partitioner.partitioner : pass 0, cut weight = 11330
+linsolve.solver.precon.precon0.restrictor.partitioner.partitioner.partitioner.partitioner : pass 1, cut weight = 11118
+linsolve.solver.precon.precon0.restrictor.partitioner.partitioner.partitioner.partitioner : pass 2, cut weight = 11330
+linsolve.solver.precon.precon0.restrictor.partitioner.partitioner.partitioner.partitioner : pass 3, cut weight = 11118
+linsolve.solver.precon.precon0.restrictor.partitioner.partitioner.partitioner.partitioner.optimizer : initial edge-cut weight = 11118
+linsolve.solver.precon.precon0.restrictor.partitioner.partitioner.partitioner.partitioner.optimizer : final   edge-cut weight = 10356
+linsolve.solver.precon.precon0.restrictor.partitioner.partitioner.optimizer : initial edge-cut weight = 10356
+linsolve.solver.precon.precon0.restrictor.partitioner.partitioner.optimizer : final   edge-cut weight = 9798
+linsolve.solver.precon.precon0.restrictor.partitioner.partitioner.optimizer : initial edge-cut weight = 9798
+linsolve.solver.precon.precon0.restrictor.partitioner.partitioner.optimizer : final   edge-cut weight = 9798
+linsolve.solver.precon.precon0.restrictor.partitioner.partitioner.optimizer : initial edge-cut weight = 9798
+linsolve.solver.precon.precon0.restrictor.partitioner.partitioner.optimizer : final   edge-cut weight = 9924
+linsolve.solver.precon.precon0.restrictor.partitioner.partitioner.optimizer : initial edge-cut weight = 9924
+linsolve.solver.precon.precon0.restrictor.partitioner.partitioner.optimizer : final   edge-cut weight = 9924
+linsolve.solver.precon.precon0.restrictor.partitioner.partitioner.optimizer : initial edge-cut weight = 9924
+linsolve.solver.precon.precon0.restrictor.partitioner.partitioner.optimizer : final   edge-cut weight = 10062
+linsolve.solver.precon.precon0.restrictor.partitioner.partitioner.optimizer : initial edge-cut weight = 10062
+linsolve.solver.precon.precon0.restrictor.partitioner.partitioner.optimizer : final   edge-cut weight = 10062
+linsolve.solver.precon.precon0.restrictor.partitioner.partitioner.optimizer : initial edge-cut weight = 10062
+linsolve.solver.precon.precon0.restrictor.partitioner.partitioner.optimizer : final   edge-cut weight = 10062
+linsolve.solver.precon.precon0.restrictor.partitioner.partitioner.optimizer : initial edge-cut weight = 10062
+linsolve.solver.precon.precon0.restrictor.partitioner.partitioner.optimizer : final   edge-cut weight = 9948
+linsolve.solver.precon.precon0.restrictor.partitioner.partitioner.optimizer : initial edge-cut weight = 9948
+linsolve.solver.precon.precon0.restrictor.partitioner.partitioner.optimizer : final   edge-cut weight = 9948
+linsolve.solver.precon.precon0.restrictor.partitioner.partitioner.optimizer : initial edge-cut weight = 9948
+linsolve.solver.precon.precon0.restrictor.partitioner.partitioner.optimizer : final   edge-cut weight = 9948
+linsolve.solver.precon.precon0.restrictor.partitioner.partitioner.optimizer : initial edge-cut weight = 9948
+linsolve.solver.precon.precon0.restrictor.partitioner.partitioner.optimizer : final   edge-cut weight = 9948
+linsolve.solver.precon.precon0.restrictor.partitioner.partitioner.optimizer : initial edge-cut weight = 9948
+linsolve.solver.precon.precon0.restrictor.partitioner.partitioner.optimizer : final   edge-cut weight = 9948
+linsolve.solver.precon.precon0.restrictor.partitioner.partitioner.optimizer : initial edge-cut weight = 9948
+linsolve.solver.precon.precon0.restrictor.partitioner.partitioner.optimizer : final   edge-cut weight = 9954
+linsolve.solver.precon.precon0.restrictor.partitioner.partitioner.optimizer : initial edge-cut weight = 9954
+linsolve.solver.precon.precon0.restrictor.partitioner.partitioner.optimizer : final   edge-cut weight = 9954
+linsolve.solver.precon.precon0.restrictor.partitioner.partitioner.optimizer : initial edge-cut weight = 9954
+linsolve.solver.precon.precon0.restrictor.partitioner.partitioner.optimizer : final   edge-cut weight = 9954
+linsolve.solver.precon.precon0.restrictor.partitioner.partitioner : level 2, graph size = 131073
+linsolve.solver.precon.precon0.restrictor.partitioner.partitioner : level 3, graph size = 68365
+linsolve.solver.precon.precon0.restrictor.partitioner.partitioner : level 4, graph size = 35929
+linsolve.solver.precon.precon0.restrictor.partitioner.partitioner : level 5, graph size = 19034
+linsolve.solver.precon.precon0.restrictor.partitioner.partitioner : level 6, graph size = 10108
+linsolve.solver.precon.precon0.restrictor.partitioner.partitioner : level 7, graph size = 5381
+linsolve.solver.precon.precon0.restrictor.partitioner.partitioner : level 8, graph size = 2868
+linsolve.solver.precon.precon0.restrictor.partitioner.partitioner : level 9, graph size = 1527
+linsolve.solver.precon.precon0.restrictor.partitioner.partitioner : level 10, graph size = 814
+linsolve.solver.precon.precon0.restrictor.partitioner.partitioner : level 11, graph size = 439
+linsolve.solver.precon.precon0.restrictor.partitioner.partitioner : level 12, graph size = 231
+linsolve.solver.precon.precon0.restrictor.partitioner.partitioner : level 13, graph size = 123
+linsolve.solver.precon.precon0.restrictor.partitioner.partitioner : level 14, graph size = 68
+linsolve.solver.precon.precon0.restrictor.partitioner.partitioner : level 15, graph size = 38
+linsolve.solver.precon.precon0.restrictor.partitioner.partitioner : level 16, graph size = 20
+linsolve.solver.precon.precon0.restrictor.partitioner.partitioner : level count = 16, coarsest graph size = 20
+linsolve.solver.precon.precon0.restrictor.partitioner.partitioner.partitioner.partitioner : pass 0, cut weight = 12081
+linsolve.solver.precon.precon0.restrictor.partitioner.partitioner.partitioner.partitioner : pass 1, cut weight = 10671
+linsolve.solver.precon.precon0.restrictor.partitioner.partitioner.partitioner.partitioner : pass 2, cut weight = 12081
+linsolve.solver.precon.precon0.restrictor.partitioner.partitioner.partitioner.partitioner : pass 3, cut weight = 12081
+linsolve.solver.precon.precon0.restrictor.partitioner.partitioner.partitioner.partitioner.optimizer : initial edge-cut weight = 10671
+linsolve.solver.precon.precon0.restrictor.partitioner.partitioner.partitioner.partitioner.optimizer : final   edge-cut weight = 9793
+linsolve.solver.precon.precon0.restrictor.partitioner.partitioner.optimizer : initial edge-cut weight = 9793
+linsolve.solver.precon.precon0.restrictor.partitioner.partitioner.optimizer : final   edge-cut weight = 11060
+linsolve.solver.precon.precon0.restrictor.partitioner.partitioner.optimizer : initial edge-cut weight = 11060
+linsolve.solver.precon.precon0.restrictor.partitioner.partitioner.optimizer : final   edge-cut weight = 11534
+linsolve.solver.precon.precon0.restrictor.partitioner.partitioner.optimizer : initial edge-cut weight = 11534
+linsolve.solver.precon.precon0.restrictor.partitioner.partitioner.optimizer : final   edge-cut weight = 11534
+linsolve.solver.precon.precon0.restrictor.partitioner.partitioner.optimizer : initial edge-cut weight = 11534
+linsolve.solver.precon.precon0.restrictor.partitioner.partitioner.optimizer : final   edge-cut weight = 11195
+linsolve.solver.precon.precon0.restrictor.partitioner.partitioner.optimizer : initial edge-cut weight = 11195
+linsolve.solver.precon.precon0.restrictor.partitioner.partitioner.optimizer : final   edge-cut weight = 11195
+linsolve.solver.precon.precon0.restrictor.partitioner.partitioner.optimizer : initial edge-cut weight = 11195
+linsolve.solver.precon.precon0.restrictor.partitioner.partitioner.optimizer : final   edge-cut weight = 11195
+linsolve.solver.precon.precon0.restrictor.partitioner.partitioner.optimizer : initial edge-cut weight = 11195
+linsolve.solver.precon.precon0.restrictor.partitioner.partitioner.optimizer : final   edge-cut weight = 11195
+linsolve.solver.precon.precon0.restrictor.partitioner.partitioner.optimizer : initial edge-cut weight = 11195
+linsolve.solver.precon.precon0.restrictor.partitioner.partitioner.optimizer : final   edge-cut weight = 11195
+linsolve.solver.precon.precon0.restrictor.partitioner.partitioner.optimizer : initial edge-cut weight = 11195
+linsolve.solver.precon.precon0.restrictor.partitioner.partitioner.optimizer : final   edge-cut weight = 11159
+linsolve.solver.precon.precon0.restrictor.partitioner.partitioner.optimizer : initial edge-cut weight = 11159
+linsolve.solver.precon.precon0.restrictor.partitioner.partitioner.optimizer : final   edge-cut weight = 11159
+linsolve.solver.precon.precon0.restrictor.partitioner.partitioner.optimizer : initial edge-cut weight = 11159
+linsolve.solver.precon.precon0.restrictor.partitioner.partitioner.optimizer : final   edge-cut weight = 11159
+linsolve.solver.precon.precon0.restrictor.partitioner.partitioner.optimizer : initial edge-cut weight = 11159
+linsolve.solver.precon.precon0.restrictor.partitioner.partitioner.optimizer : final   edge-cut weight = 11129
+linsolve.solver.precon.precon0.restrictor.partitioner.partitioner.optimizer : initial edge-cut weight = 11129
+linsolve.solver.precon.precon0.restrictor.partitioner.partitioner.optimizer : final   edge-cut weight = 11129
+linsolve.solver.precon.precon0.restrictor.partitioner.partitioner.optimizer : initial edge-cut weight = 11129
+linsolve.solver.precon.precon0.restrictor.partitioner.partitioner.optimizer : final   edge-cut weight = 11129
+linsolve.solver.precon.precon0.restrictor.partitioner.partitioner.optimizer : initial edge-cut weight = 11129
+linsolve.solver.precon.precon0.restrictor.partitioner.partitioner.optimizer : final   edge-cut weight = 11129
+linsolve.solver.precon.precon0.restrictor.partitioner.optimizer : initial edge-cut weight = 30762
+linsolve.solver.precon.precon0.restrictor.partitioner.optimizer : final   edge-cut weight = 24504
+linsolve.solver.precon.precon0.restrictor : computing 1 rigid body modes ...
+linsolve.solver.precon.precon0.restrictor : got 4 rigid body vectors
+Numbering coarse DOFs ...
+linsolve.solver.precon.precon0 : assembling the coarse matrix ...
+linsolve.solver.precon.precon0 : ready in 16 iterations.
+linsolve.solver.precon.precon0 : coarse matrix size = 16
+linsolve.solver.precon.precon0 : factoring the coarse matrix ...
+linsolve.solver.precon.precon0 : factorization complete.
+linsolve.solver.precon.precon1 : re-ordering matrix ...
+linsolve.solver.precon.precon1 : computing ILU factors ...
+linsolve.solver.precon.precon1 : non-zeroes in ILU factors: 9.698e+06
+jive::algebra::MPVectorSpace : initializing weight vector ...
+
+Solution obtained in    0 iterations ( 4.210e+00 seconds).
+
+Model `model.model.model.transport.model' is taking action `UPDATE'
+
+No action has been taken.
+
+Model `model.model.model.transport.model' is taking action `CHECK_COMMIT'
+
+No action has been taken.
+
+Model `model.model.model.transport.model' is taking action `COMMIT'
+
+DofSpace event ...
+
+No action has been taken.
+
+Model `model.model.model.transport.model' is taking action `GET_TABLE'
+
+Action completed in 0.661873 seconds.
+
+Runtime phase completed successfully.
+
+  Elapsed CPU  time : 153.8 seconds.
+  Elapsed real time : 48.38 seconds.
+
+Model `model.model.model.transport.model' is taking action `SHUTDOWN'
+
+No action has been taken.
+
+Shutdown phase completed successfully.
+
+  Elapsed CPU  time : 154.1 seconds.
+  Elapsed real time : 50.80 seconds.
+

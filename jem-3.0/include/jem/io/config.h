@@ -1,0 +1,12 @@
+
+// Generated on Fri 20 Dec 14:32:23 CET 2019.
+// CHANGES TO THIS FILE WILL BE LOST.
+
+#ifndef JEM_IO_CONFIG_H
+#define JEM_IO_CONFIG_H
+
+#define JEM_USE_ZLIB
+#define JEM_USE_READLINE
+#define JEM_USE_GNU_READLINE
+
+#endif

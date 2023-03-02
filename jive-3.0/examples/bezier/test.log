@@ -1,0 +1,146 @@
+Log file created on Fri Oct 06 06:35:04 CEST 2017.
+
+Reading data from `test.data' ...
+
+  test.data, line 2: reading tag `Include' ...
+  ...ngle.mesh, line 1: reading from `rectangle.mesh' ...
+  ...ngle.mesh, line 1: reading tag `Nodes' ...
+  ...ngle.mesh, line 14: done reading tag `Nodes'
+  ...ngle.mesh, line 16: reading tag `Elements' ...
+  ...ngle.mesh, line 19: done reading tag `Elements'
+  ...ngle.mesh, line 21: reading tag `ElementDatabase' ...
+  ...ngle.mesh, line 22: reading tag `Column' ...
+  ...ngle.mesh, line 25: done reading tag `Column'
+  ...ngle.mesh, line 26: reading tag `Column' ...
+  ...ngle.mesh, line 29: done reading tag `Column'
+  ...ngle.mesh, line 30: reading tag `Column' ...
+  ...ngle.mesh, line 33: done reading tag `Column'
+  ...ngle.mesh, line 34: done reading tag `ElementDatabase'
+  test.data, line 2: leaving `rectangle.mesh'.
+  test.data, line 4: reading tag `NodeConstraints' ...
+  test.data, line 11: done reading tag `NodeConstraints'
+
+Created a new model named `model'.
+jive::util::FlexDofSpace(test.nodes) : switching to dense storage mode ...
+
+jive::util::Constraints(test.nodes) : reallocating constraints, kind = COMPRESSED
+
+Data summary:
+
+  nodes ......................................... 12
+  node dofs ..................................... 12
+  node constraints .............................. 6
+  node groups ................................... 2
+  node tables ................................... 0
+  node data bases ............................... 0
+  elements ...................................... 2
+  element groups ................................ 2
+  element tables ................................ 0
+  element data bases ............................ 1
+  boundaries .................................... 0
+  boundary groups ............................... 2
+  boundary tables ............................... 0
+  boundary data bases ........................... 0
+  functions ..................................... 0
+
+Application configuration data:
+
+  log	=
+  {
+    file	= "-test.log";
+    rank	= 0;
+    pattern	= "*.info|*.debug";
+    logPrefix	= "";
+    outPrefix	= "";
+    warnPrefix	= "*** WARNING: ";
+    errPrefix	= "*** ERROR: ";
+  };
+  output	=
+  {
+    file	= "test.out";
+    append	= false;
+    precision	= 6;
+    pageWidth	= 200;
+    bufsize	= -1;
+    vectors	= [ "state = solution" ];
+    tables	= [ "elements/flux = flux[%i]" ];
+    saveWhen	= true;
+  };
+  input	=
+  {
+    storageMode	= "Default";
+    file	= "test.data";
+    maxParts	= 0;
+    tableFilter	= "*";
+    dbaseFilter	= "*";
+    funcFilter	= "*";
+  };
+  storageMode	= "Default";
+  model	=
+  {
+    type	= "Matrix";
+    model	=
+    {
+      type	= "Poisson";
+    };
+    debug	= 0;
+    linear	= false;
+    matrix0	=
+    {
+      type	= "FEM";
+      symmetric	= false;
+      optimize	= "Runtime";
+    };
+  };
+  init	=
+  {
+    reorder	= false;
+    vectors	= [];
+  };
+  linsolve	=
+  {
+    solver	=
+    {
+      type	= "SkylineLU";
+      lenient	= false;
+      precision	= 1.00000e-05;
+      zeroThreshold	= 1.49012e-08;
+      maxZeroPivots	= 0;
+      reorder	= true;
+      useThreads	= true;
+      printPivots	= false;
+    };
+  };
+
+Initialization phase completed successfully.
+
+  Elapsed CPU  time : 0.000 seconds.
+  Elapsed real time : 0.004497 seconds.
+
+Iteration       : 0
+Elapsed runtime : 0.004731 seconds
+
+Assembling the global system of equations ...
+model.matrix0 : updating matrix structure ...
+model.matrix0 : matrix structure updated.
+model.matrix0 : updating sparse matrix structure ...
+model.matrix0 : scanning matrix for super rows ...
+model.matrix0 : done; found 9 super rows in 12 matrix rows.
+model.matrix0 : not enough super rows to enable blocking mode.
+Solving the global system of equations ...
+
+linsolve.solver.constrainer : updating matrix structure ...
+linsolve.solver : spawning worker thread ...
+linsolve.solver : re-ordering matrix ...
+linsolve.solver : half-bandwidth = 4
+
+Runtime phase completed successfully.
+
+  Elapsed CPU  time : 0.000 seconds.
+  Elapsed real time : 0.006970 seconds.
+
+Shutdown phase completed successfully.
+
+  Elapsed CPU  time : 0.000 seconds.
+  Elapsed real time : 0.007609 seconds.
+

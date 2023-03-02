@@ -1,0 +1,749 @@
+Log file created on Fri Jun 22 21:30:05 CEST 2018.
+
+Reading data from `test.data' ...
+
+  test.data, line 2: reading tag `Nodes' ...
+  test.data, line 17: done reading tag `Nodes'
+  test.data, line 20: reading tag `Elements' ...
+  test.data, line 26: done reading tag `Elements'
+  test.data, line 29: reading tag `ElementGroup' ...
+  test.data, line 33: done reading tag `ElementGroup'
+  test.data, line 36: reading tag `ElementGroup' ...
+  test.data, line 40: done reading tag `ElementGroup'
+  test.data, line 43: reading tag `NodeGroup' ...
+  test.data, line 47: done reading tag `NodeGroup'
+  test.data, line 50: reading tag `NodeTable' ...
+  test.data, line 52: reading tag `Section' ...
+  test.data, line 57: done reading tag `Section'
+  test.data, line 59: done reading tag `NodeTable'
+
+Created a new model named `model'.
+
+Data summary:
+
+  nodes ......................................... 12
+  node groups ................................... 3
+  node tables ................................... 1
+  node data bases ............................... 0
+  elements ...................................... 3
+  element groups ................................ 4
+  element tables ................................ 0
+  element data bases ............................ 0
+  boundaries .................................... 0
+  boundary groups ............................... 2
+  boundary tables ............................... 0
+  boundary data bases ........................... 0
+  functions ..................................... 0
+
+view.mesh : building graphics mesh ...
+shapeTable : updating shape table ...
+
+  creating 1 shapes of type `Tet4' ...
+
+    precision 0:
+
+      shapeFuncs	=
+      {
+        type	= "Linear";
+      };
+      intScheme	= [ "1", "1", "1", "1", "1" ];
+
+  creating 1 shapes of type `Hex8' ...
+
+    precision 0:
+
+      shapeFuncs	=
+      {
+        type	= "Linear";
+      };
+      intScheme	= [ "2*2*2", "2*2", "2*2", "2*2", "2*2", "2*2", "2*2" ];
+
+  trying to create 1 interface shapes ...
+
+    creating 1 shapes of type `BQuad4' ...
+
+      precision 0:
+
+        shapeFuncs	=
+        {
+          type	= "Linear";
+        };
+        intScheme	= "2*2";
+
+  wrapping boundary shapes in interface shapes ...
+
+view.mesh : ready; graphics mesh contains:
+
+  vertices  ...... 17
+  faces     ...... 9
+  triangles ...... 24
+  lines     ...... 0
+  edges     ...... 18
+
+Reading data from `test.data' ...
+
+  test.data, line 2: reading tag `Nodes' ...
+  test.data, line 17: done reading tag `Nodes'
+  test.data, line 20: reading tag `Elements' ...
+  test.data, line 26: done reading tag `Elements'
+  test.data, line 29: reading tag `ElementGroup' ...
+  test.data, line 33: done reading tag `ElementGroup'
+  test.data, line 36: reading tag `ElementGroup' ...
+  test.data, line 40: done reading tag `ElementGroup'
+  test.data, line 43: reading tag `NodeGroup' ...
+  test.data, line 47: done reading tag `NodeGroup'
+  test.data, line 50: reading tag `NodeTable' ...
+  test.data, line 52: reading tag `Section' ...
+  test.data, line 57: done reading tag `Section'
+  test.data, line 59: done reading tag `NodeTable'
+
+view.mesh2 : building graphics mesh ...
+view.input.shapeTable : updating shape table ...
+
+  creating 1 shapes of type `Tet4' ...
+
+    precision 0:
+
+      shapeFuncs	=
+      {
+        type	= "Linear";
+      };
+      intScheme	= [ "1", "1", "1", "1", "1" ];
+
+  creating 1 shapes of type `Hex8' ...
+
+    precision 0:
+
+      shapeFuncs	=
+      {
+        type	= "Linear";
+      };
+      intScheme	= [ "2*2*2", "2*2", "2*2", "2*2", "2*2", "2*2", "2*2" ];
+
+  trying to create 1 interface shapes ...
+
+    creating 1 shapes of type `BQuad4' ...
+
+      precision 0:
+
+        shapeFuncs	=
+        {
+          type	= "Linear";
+        };
+        intScheme	= "2*2";
+
+  wrapping boundary shapes in interface shapes ...
+
+view.mesh2 : ready; graphics mesh contains:
+
+  vertices  ...... 17
+  faces     ...... 9
+  triangles ...... 24
+  lines     ...... 0
+  edges     ...... 18
+
+Application configuration data:
+
+  log	=
+  {
+    file	= "-test.log";
+    rank	= 0;
+    pattern	= "*.info | *.debug";
+    logPrefix	= "";
+    outPrefix	= "";
+    warnPrefix	= "*** WARNING: ";
+    errPrefix	= "*** ERROR: ";
+  };
+  control	=
+  {
+    prompt	= "femviz>";
+    cmdFile	= "-";
+    fgMode	= true;
+    pause	= -1.00000;
+    runWhile	= "i < 0";
+  };
+  view	=
+  {
+    snapFile	= "snapshot%2i.png";
+    configFile	= "view.conf";
+    updateWhen	= "(view.updateLoad < 0.1) && (view.renderLoad < 0.5)";
+    snapWhen	= false;
+    input	=
+    {
+      mesh	= "test";
+      file	= "test.data";
+      tableFilter	= "*";
+      dbaseFilter	= "*";
+      maxParts	= 0;
+      storageMode	= "Compact";
+      shapeTable	=
+      {
+        type	= "Auto";
+        boundaryElems	= "";
+        interfaceElems	= "interfaces";
+        maxPrecision	= 0;
+      };
+    };
+    offScreen	= false;
+    camera	=
+    {
+      type	= "Perspective";
+      farClip	= 10.0000;
+      nearClip	= 0.500000;
+      viewAngle	= 40.0000;
+      position	= [ -0.00000, -0.00000, 3.00000 ];
+      zoom	= 0.00000;
+      quality	= 8;
+      autoQuality	= false;
+    };
+    disp	=
+    {
+      type	= "Table";
+      table	= "nodes/disp";
+      tableType	= "Dense";
+      nullValue	= 0.00000;
+    };
+    dataSets	= [ "disp" ];
+    window	=
+    {
+      bgColor	= "white";
+      title	= "femviz.view";
+      width	= -1;
+      height	= -1;
+    };
+    world	=
+    {
+      scale	= 1.00000;
+      rotmat	= [ 1.00000, 0.00000, 0.00000, 0.00000, 1.00000, 0.00000, 0.00000, 0.00000, 1.00000 ];
+      translation	= [ 0.00000, 0.00000, 0.00000 ];
+    };
+    lights	=
+    {
+      light0	=
+      {
+        color	= "white20";
+        direction	= [ -1.00000, -0.00000, -0.00000 ];
+        enable	= true;
+      };
+      light1	=
+      {
+        color	= "white20";
+        direction	= [ -0.00000, -1.00000, -0.00000 ];
+        enable	= true;
+      };
+      light2	=
+      {
+        color	= "white";
+        direction	= [ -0.00000, -0.00000, -1.00000 ];
+        enable	= true;
+      };
+      ambient	= "white20";
+    };
+    markerStyles	=
+    {
+      points	=
+      {
+        size	= 3.00000;
+        color	= "black";
+      };
+      orbs	=
+      {
+        size	= -0.0100000;
+        quality	= 1;
+        color	= "gold";
+      };
+      numbers	=
+      {
+        font	= "proportional medium";
+        color	= "black";
+      };
+      circles	=
+      {
+        size	= "medium";
+        color	= "black";
+      };
+      diamonds	=
+      {
+        size	= "medium";
+        color	= "black";
+      };
+      discs	=
+      {
+        size	= "medium";
+        color	= "black";
+      };
+      squares	=
+      {
+        size	= "medium";
+        color	= "black";
+      };
+      tee45	=
+      {
+        type	= "Tee";
+        size	= -0.0200000;
+        angle	= 45.0000;
+        color	= "black";
+      };
+      styles	= [ "tee45" ];
+    };
+    palettes	=
+    {
+      linear	=
+      {
+        minValue	= 0.00000;
+        maxValue	= 1.00000;
+        minColor	= "blue";
+        maxColor	= "red";
+      };
+      rainbow	=
+      {
+        minValue	= 0.00000;
+        maxValue	= 1.00000;
+      };
+      custom	=
+      {
+        colors	= [ "blue", "green", "yellow", "orange", "red" ];
+        ranges	= [ 0.00000, 0.200000, 0.400000, 0.600000, 0.800000, 1.00000 ];
+        hideMinMax	= false;
+      };
+      palettes	= [];
+    };
+    mesh	=
+    {
+      elements	= "all";
+      scale	= 1.00000;
+      rotmat	= [ 1.00000, 0.00000, 0.00000, 0.00000, 1.00000, 0.00000, 0.00000, 0.00000, 1.00000 ];
+      translation	= [ 0.00000, 0.00000, 0.00000 ];
+      material	=
+      {
+        shininess	= 0.00000;
+        specular	= "black";
+      };
+      showEdges	= true;
+      showLines	= true;
+      showFaces	= true;
+      pointSize	= 1.00000;
+      lineWidth	= 1.00000;
+      shadeModel	= "Flat";
+      color	= [ 0.00000, 0.00000, 1.00000, 0.200000 ];
+      edgeColor	= "black";
+      nodeColor	= "black";
+      hidden	= false;
+      deformation	= none;
+    };
+    nodes	=
+    {
+      points	= "nodes";
+      hidden	= false;
+      markers	= [ "upper : tee45" ];
+      displacements	=
+      {
+        scale	= 1.00000;
+        autoScale	= false;
+        scaleStep	= 0.100000;
+        dx	= "disp[dx]";
+        dy	= "disp[dy]";
+        dz	= "disp[dz]";
+      };
+    };
+    mesh2	=
+    {
+      elements	= "test.elements/all";
+      scale	= 1.00000;
+      rotmat	= [ 1.00000, 0.00000, 0.00000, 0.00000, 1.00000, 0.00000, 0.00000, 0.00000, 1.00000 ];
+      translation	= [ 0.00000, 0.00000, 0.00000 ];
+      material	=
+      {
+        shininess	= 0.00000;
+        specular	= "black";
+      };
+      showEdges	= true;
+      showLines	= true;
+      showFaces	= true;
+      pointSize	= 1.00000;
+      lineWidth	= 1.00000;
+      shadeModel	= "Flat";
+      color	= "gray";
+      edgeColor	= "black";
+      nodeColor	= "black";
+      hidden	= false;
+      deformation	= none;
+    };
+  };
+  input	=
+  {
+    storageMode	= "Compact";
+    file	= "test.data";
+    maxParts	= 0;
+    tableFilter	= "*";
+    dbaseFilter	= "*";
+    funcFilter	= "*";
+  };
+  storageMode	= "Compact";
+  shapeTable	=
+  {
+    type	= "Auto";
+    boundaryElems	= "";
+    interfaceElems	= "interfaces";
+    maxPrecision	= 0;
+  };
+  model	= none;
+  init	=
+  {
+    reorder	= false;
+    vectors	= [];
+  };
+
+Initialization phase completed successfully.
+
+  Elapsed CPU  time : 0.07000 seconds.
+  Elapsed real time : 0.1001 seconds.
+
+Iteration       : 0
+Elapsed runtime : 0.1003 seconds
+
+Line Width = 1.000
+Syncing data ...
+Line Width = 1.000
+Syncing data ...
+Line Width = 1.000
+Line Width = 1.000
+Line Width = 1.000
+Line Width = 1.000
+Line Width = 1.000
+Line Width = 1.000
+Line Width = 1.000
+Line Width = 1.000
+Line Width = 1.000
+Line Width = 1.000
+Line Width = 1.000
+Line Width = 1.000
+Line Width = 1.000
+Line Width = 1.000
+Line Width = 1.000
+Syncing data ...
+Line Width = 1.000
+Syncing data ...
+Line Width = 1.000
+Line Width = 1.000
+Line Width = 1.000
+Line Width = 1.000
+Line Width = 1.000
+Line Width = 1.000
+Line Width = 1.000
+Line Width = 1.000
+Line Width = 1.000
+Line Width = 1.000
+Line Width = 1.000
+Line Width = 1.000
+Line Width = 1.000
+Line Width = 1.000
+
+Line Width = 1.000
+Line Width = 1.000
+Line Width = 1.000
+Line Width = 1.000
+Line Width = 1.000
+Line Width = 1.000
+Line Width = 1.000
+Line Width = 1.000
+Line Width = 1.000
+Line Width = 1.000
+Line Width = 1.000
+Line Width = 1.000
+Line Width = 1.000
+Line Width = 1.000
+Line Width = 1.000
+Line Width = 1.000
+Line Width = 1.000
+Line Width = 1.000
+Line Width = 1.000
+Line Width = 1.000
+Line Width = 1.000
+Line Width = 1.000
+Line Width = 1.000
+Line Width = 1.000
+Line Width = 1.000
+Line Width = 1.000
+Line Width = 1.000
+Line Width = 1.000
+Line Width = 1.000
+Line Width = 1.000
+Line Width = 1.000
+Line Width = 1.000
+Line Width = 1.000
+Line Width = 1.000
+Line Width = 1.000
+Line Width = 1.000
+Line Width = 1.000
+Line Width = 1.000
+Line Width = 1.000
+Line Width = 1.000
+Line Width = 1.000
+Line Width = 1.000
+Line Width = 1.000
+Line Width = 1.000
+Line Width = 1.000
+Line Width = 1.000
+Line Width = 1.000
+Line Width = 1.000
+Line Width = 1.000
+Line Width = 1.000
+Line Width = 1.000
+Line Width = 1.000
+Line Width = 1.000
+Line Width = 1.000
+Line Width = 1.000
+Line Width = 1.000
+Line Width = 1.000
+Line Width = 1.000
+Line Width = 1.000
+Line Width = 1.000
+Line Width = 1.000
+Line Width = 1.000
+Line Width = 1.000
+Line Width = 1.000
+Line Width = 1.000
+Line Width = 1.000
+Line Width = 1.000
+Line Width = 1.000
+Line Width = 1.000
+Line Width = 1.000
+Line Width = 1.000
+Line Width = 1.000
+Line Width = 1.000
+Line Width = 1.000
+Line Width = 1.000
+Line Width = 1.000
+Line Width = 1.000
+Line Width = 1.000
+Line Width = 1.000
+Line Width = 1.000
+Line Width = 1.000
+Line Width = 1.000
+Line Width = 1.000
+Line Width = 1.000
+Line Width = 1.000
+Line Width = 1.000
+Line Width = 1.000
+Line Width = 1.000
+Line Width = 1.000
+Line Width = 1.000
+Line Width = 1.000
+Line Width = 1.000
+Line Width = 1.000
+Line Width = 1.000
+Line Width = 1.000
+Line Width = 1.000
+Line Width = 1.000
+Line Width = 1.000
+Line Width = 1.000
+Line Width = 1.000
+Line Width = 1.000
+Line Width = 1.000
+Line Width = 1.000
+Line Width = 1.000
+Line Width = 1.000
+Line Width = 1.000
+Line Width = 1.000
+Line Width = 1.000
+Line Width = 1.000
+Line Width = 1.000
+Line Width = 1.000
+Line Width = 1.000
+Line Width = 1.000
+Line Width = 1.000
+Line Width = 1.000
+Line Width = 1.000
+Line Width = 1.000
+Line Width = 1.000
+Line Width = 1.000
+Line Width = 1.000
+Line Width = 1.000
+Line Width = 1.000
+Line Width = 1.000
+Line Width = 1.000
+Line Width = 1.000
+Line Width = 1.000
+Line Width = 1.000
+Line Width = 1.000
+Line Width = 1.000
+Line Width = 1.000
+Line Width = 1.000
+Line Width = 1.000
+Line Width = 1.000
+Line Width = 1.000
+Line Width = 1.000
+Line Width = 1.000
+Line Width = 1.000
+Line Width = 1.000
+Line Width = 1.000
+Line Width = 1.000
+Line Width = 1.000
+Line Width = 1.000
+Line Width = 1.000
+Line Width = 1.000
+Line Width = 1.000
+Line Width = 1.000
+Line Width = 1.000
+Line Width = 1.000
+Line Width = 1.000
+Line Width = 1.000
+Line Width = 1.000
+Line Width = 1.000
+Line Width = 1.000
+Line Width = 1.000
+Line Width = 1.000
+Line Width = 1.000
+Line Width = 1.000
+Line Width = 1.000
+Line Width = 1.000
+Line Width = 1.000
+Line Width = 1.000
+Line Width = 1.000
+Line Width = 1.000
+Line Width = 1.000
+Line Width = 1.000
+Line Width = 1.000
+Line Width = 1.000
+Line Width = 1.000
+Line Width = 1.000
+Line Width = 1.000
+Line Width = 1.000
+Line Width = 1.000
+Line Width = 1.000
+Line Width = 1.000
+Line Width = 1.000
+Line Width = 1.000
+Line Width = 1.000
+Line Width = 1.000
+Line Width = 1.000
+Line Width = 1.000
+Line Width = 1.000
+Line Width = 1.000
+Line Width = 1.000
+Line Width = 1.000
+Line Width = 1.000
+Line Width = 1.000
+Line Width = 1.000
+Line Width = 1.000
+Line Width = 1.000
+Line Width = 1.000
+Line Width = 1.000
+Line Width = 1.000
+Line Width = 1.000
+Line Width = 1.000
+Line Width = 1.000
+Line Width = 1.000
+Line Width = 1.000
+Line Width = 1.000
+Line Width = 1.000
+Line Width = 1.000
+Line Width = 1.000
+Line Width = 1.000
+Line Width = 1.000
+Line Width = 1.000
+Line Width = 1.000
+Line Width = 1.000
+Line Width = 1.000
+Line Width = 1.000
+Line Width = 1.000
+Line Width = 1.000
+Line Width = 1.000
+Line Width = 1.000
+Line Width = 1.000
+Line Width = 1.000
+Line Width = 1.000
+Line Width = 1.000
+Line Width = 1.000
+Line Width = 1.000
+Line Width = 1.000
+Line Width = 1.000
+Line Width = 1.000
+Line Width = 1.000
+Line Width = 1.000
+Line Width = 1.000
+Line Width = 1.000
+Line Width = 1.000
+Line Width = 1.000
+Line Width = 1.000
+Line Width = 1.000
+Line Width = 1.000
+Line Width = 1.000
+Line Width = 1.000
+Line Width = 1.000
+Line Width = 1.000
+Line Width = 1.000
+Line Width = 1.000
+Line Width = 1.000
+Line Width = 1.000
+Line Width = 1.000
+Line Width = 1.000
+Line Width = 1.000
+Line Width = 1.000
+Line Width = 1.000
+Line Width = 1.000
+Line Width = 1.000
+Line Width = 1.000
+Line Width = 1.000
+Line Width = 1.000
+Line Width = 1.000
+Line Width = 1.000
+Line Width = 1.000
+Line Width = 1.000
+Line Width = 1.000
+Line Width = 1.000
+Line Width = 1.000
+Line Width = 1.000
+Line Width = 1.000
+Line Width = 1.000
+Line Width = 1.000
+Line Width = 1.000
+Line Width = 1.000
+Line Width = 1.000
+Line Width = 1.000
+Line Width = 1.000
+Line Width = 1.000
+Line Width = 1.000
+Line Width = 1.000
+Line Width = 1.000
+Line Width = 1.000
+Line Width = 1.000
+Line Width = 1.000
+Line Width = 1.000
+Line Width = 1.000
+Line Width = 1.000
+Line Width = 1.000
+Line Width = 1.000
+Line Width = 1.000
+Line Width = 1.000
+Line Width = 1.000
+Line Width = 1.000
+Line Width = 1.000
+Line Width = 1.000
+Line Width = 1.000
+Line Width = 1.000
+Line Width = 1.000
+Line Width = 1.000
+Line Width = 1.000
+Line Width = 1.000
+Line Width = 1.000
+Line Width = 1.000
+Line Width = 1.000
+Line Width = 1.000
+Line Width = 1.000
+Line Width = 1.000
+Line Width = 1.000
+Line Width = 1.000
+Line Width = 1.000
+Line Width = 1.000
+Line Width = 1.000
+Line Width = 1.000
+Line Width = 1.000
+Line Width = 1.000
+Line Width = 1.000
+Line Width = 1.000
+Line Width = 1.000
+Line Width = 1.000
+Line Width = 1.000
+Line Width = 1.000
