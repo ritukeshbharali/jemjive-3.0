@@ -1378,8 +1378,9 @@ void ConstraintsParser::getConstraints
 
     if ( cons.isSlaveDof(idof) )
     {
-      Errors_::illegalSlaveDof ( context, d,
-                                 con->iitem, con->itype );
+      /*Errors_::illegalSlaveDof ( context, d,
+                                 con->iitem, con->itype );*/
+      cons.eraseConstraint ( idof );
     }
 
     bool    rmask = d.rvalueMask[icon];
