@@ -35,6 +35,8 @@ jobs:
       # ---------------- BUILD JIVE ----------------
       - name: Build jive-3.0
         working-directory: jive-3.0
+        env:
+          JEMDIR: ${{ github.workspace }}/jem-3.0
         run: |
           ./configure
           make -j$(nproc)
@@ -45,8 +47,8 @@ jobs:
           mkdir -p ./jemjive-build
 
           # Copy full directory trees
-          cp -r ./jem-3.0 ./jemjive-build/jem
-          cp -r ./jive-3.0 ./jemjive-build/jive
+          cp -r ./jem-3.0 ./jemjive-build/jem-3.0
+          cp -r ./jive-3.0 ./jemjive-build/jive-3.0
 
       # ---------------- UPLOAD FOLDER ARTIFACT ----------------
       - name: Upload jemjive-build folder
