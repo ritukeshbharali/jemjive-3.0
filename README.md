@@ -1,5 +1,7 @@
 ![Ubuntu Build Status](https://github.com/ritukeshbharali/jemjive-3.0/actions/workflows/ci.yml/badge.svg)
-[![Codacy Badge](https://app.codacy.com/project/badge/Grade/3afca2c593a04fbf9b8e3805459ecaad)](https://www.codacy.com/gh/ritukeshbharali/jemjive-3.0/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=ritukeshbharali/jemjive-3.0&amp;utm_campaign=Badge_Grade)
+[![Artifact Build](https://github.com/ritukeshbharali/jemjive-3.0/actions/workflows/publish-artifact.yml/badge.svg)](https://github.com/ritukeshbharali/jemjive-3.0/actions/workflows/publish-artifact.yml)
+[![Container](https://ghcr-badge.egpl.dev/ritukeshbharali/jemjive/latest?trim=true)](https://github.com/ritukeshbharali/jemjive-3.0/pkgs/container/jemjive)
+
 
 # Jem-Jive-3.0
 
