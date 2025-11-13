@@ -1,5 +1,4 @@
 ![Ubuntu Build Status](https://github.com/ritukeshbharali/jemjive-3.0/actions/workflows/ci.yml/badge.svg)
-[![Artifact Build](https://github.com/ritukeshbharali/jemjive-3.0/actions/workflows/publish-artifact.yml/badge.svg)](https://github.com/ritukeshbharali/jemjive-3.0/actions/workflows/publish-artifact.yml)
 [![Container](https://ghcr-badge.egpl.dev/ritukeshbharali/jemjive/latest?trim=true)](https://github.com/ritukeshbharali/jemjive-3.0/pkgs/container/jemjive)
 
 
